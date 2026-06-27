@@ -1,114 +1,1150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Subscription Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Subscription Management System</title>
 
-<link rel="stylesheet" href="index.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
 
-<div class="container py-5">
+<div class="wrapper">
 
-    <h1 class="text-center mb-4">
-        Subscription Management System
-    </h1>
+    <!-- ================= SIDEBAR ================= -->
 
-    <div class="row mb-4">
+    <aside class="sidebar">
 
-        <div class="col-md-4">
-            <div class="card summary">
-                <h4>Total Subscriptions</h4>
-                <h2 id="totalSubs">0</h2>
-            </div>
+        <div class="logo">
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            <h3>SubManager</h3>
+
         </div>
 
-        <div class="col-md-4">
-            <div class="card summary">
-                <h4>Monthly Expense</h4>
-                <h2>₹<span id="totalExpense">0</span></h2>
-            </div>
-        </div>
+        <ul class="menu">
 
-        <div class="col-md-4">
-            <div class="card summary">
-                <h4>Active Services</h4>
-                <h2 id="activeSubs">0</h2>
+            <li class="active">
+
+                <a href="#dashboard">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#subscription">
+
+                    <i class="fa-solid fa-plus-circle"></i>
+
+                    <span>Add Subscription</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#table">
+
+                    <i class="fa-solid fa-table"></i>
+
+                    <span>Subscriptions</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#reports">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>Reports</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#profile">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="login.html">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>Logout</span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- ================= NAVBAR ================= -->
+
+        <nav class="navbar navbar-expand-lg top-navbar">
+
+            <div class="container-fluid">
+
+                <button class="btn menu-btn d-lg-none">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-search"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search subscriptions...">
+
+                </div>
+
+                <div class="nav-right">
+
+                    <!-- Notification -->
+
+                    <div class="notification">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="badge">4</span>
+
+                    </div>
+
+                    <!-- User -->
+
+                    <div class="user-profile">
+
+                        <img
+                        src="https://i.pravatar.cc/150?img=12"
+                        alt="profile">
+
+                        <div>
+
+                            <h6>Manish Jamod</h6>
+
+                            <small>Administrator</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
+
+        </nav>
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section
+        id="dashboard"
+        class="dashboard-section">
+
+            <div class="page-title">
+
+                <h2>
+
+                    Dashboard
+
+                </h2>
+
+                <p>
+
+                    Welcome back 👋 Manage all your subscriptions from one place.
+
+                </p>
+
+            </div>
+
+            <!-- Dashboard Cards -->
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon purple">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="totalSubscriptions">
+
+                                0
+
+                            </h3>
+
+                            <p>Total Subscriptions</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon green">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="activeSubscriptions">
+
+                                0
+
+                            </h3>
+
+                            <p>Active Services</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon blue">
+
+                            <i class="fa-solid fa-wallet"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="monthlyExpense">
+
+                                ₹0
+
+                            </h3>
+
+                            <p>Monthly Expense</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon orange">
+
+                            <i class="fa-solid fa-calendar-days"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="yearlyExpense">
+
+                                ₹0
+
+                            </h3>
+
+                            <p>Yearly Expense</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon pink">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="upcomingRenewals">
+
+                                0
+
+                            </h3>
+
+                            <p>Upcoming Renewals</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="dashboard-card">
+
+                        <div class="card-icon red">
+
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3 id="expiredSubscriptions">
+
+                                0
+
+                            </h3>
+
+                            <p>Expired Services</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Next Part Continues Here -->
+                         <!-- ================= ADD SUBSCRIPTION ================= -->
+
+            <section
+                id="subscription"
+                class="content-section mt-5">
+
+                <div class="section-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-plus-circle"></i>
+
+                        Add Subscription
+
+                    </h3>
+
+                    <p>
+
+                        Add and manage your subscription services.
+
+                    </p>
+
+                </div>
+
+                <div class="glass-card">
+
+                    <form id="subscriptionForm">
+
+                        <div class="row">
+
+                            <!-- Service Name -->
+
+                            <div class="col-lg-6 mb-4">
+
+                                <label class="form-label">
+
+                                    Service Name
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="service"
+                                    class="form-control"
+                                    placeholder="Netflix"
+                                    required>
+
+                            </div>
+
+                            <!-- Category -->
+
+                            <div class="col-lg-6 mb-4">
+
+                                <label class="form-label">
+
+                                    Category
+
+                                </label>
+
+                                <select
+                                    id="category"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="">Select Category</option>
+
+                                    <option>Entertainment</option>
+
+                                    <option>Music</option>
+
+                                    <option>Education</option>
+
+                                    <option>Cloud Storage</option>
+
+                                    <option>Software</option>
+
+                                    <option>Gaming</option>
+
+                                    <option>Shopping</option>
+
+                                    <option>Productivity</option>
+
+                                    <option>Health</option>
+
+                                    <option>Other</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Price -->
+
+                            <div class="col-lg-4 mb-4">
+
+                                <label class="form-label">
+
+                                    Price (₹)
+
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="price"
+                                    class="form-control"
+                                    placeholder="499"
+                                    required>
+
+                            </div>
+
+                            <!-- Billing -->
+
+                            <div class="col-lg-4 mb-4">
+
+                                <label class="form-label">
+
+                                    Billing Cycle
+
+                                </label>
+
+                                <select
+                                    id="billing"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="">Select</option>
+
+                                    <option>Monthly</option>
+
+                                    <option>Quarterly</option>
+
+                                    <option>Half Yearly</option>
+
+                                    <option>Yearly</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Renewal -->
+
+                            <div class="col-lg-4 mb-4">
+
+                                <label class="form-label">
+
+                                    Renewal Date
+
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="renewal"
+                                    class="form-control"
+                                    required>
+
+                            </div>
+
+                            <!-- Payment -->
+
+                            <div class="col-lg-6 mb-4">
+
+                                <label class="form-label">
+
+                                    Payment Method
+
+                                </label>
+
+                                <select
+                                    id="payment"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="">Choose</option>
+
+                                    <option>Credit Card</option>
+
+                                    <option>Debit Card</option>
+
+                                    <option>UPI</option>
+
+                                    <option>Net Banking</option>
+
+                                    <option>PayPal</option>
+
+                                    <option>Cash</option>
+
+                                </select>
+
+                            </div>
+
+                            <!-- Status -->
+
+                            <div class="col-lg-6 mb-4">
+
+                                <label class="form-label">
+
+                                    Status
+
+                                </label>
+
+                                <select
+                                    id="status"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="">Choose</option>
+
+                                    <option>Active</option>
+
+                                    <option>Expired</option>
+
+                                    <option>Cancelled</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex gap-3 mt-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary px-4">
+
+                                <i class="fa-solid fa-floppy-disk"></i>
+
+                                Save Subscription
+
+                            </button>
+
+                            <button
+                                type="reset"
+                                class="btn btn-outline-light px-4">
+
+                                <i class="fa-solid fa-rotate-left"></i>
+
+                                Reset
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+            <!-- ================= NEXT PART ================= -->
+
+            <!-- Part 3 starts from here -->
+                         <!-- ================= SUBSCRIPTION TABLE ================= -->
+
+            <section
+                id="table"
+                class="content-section mt-5">
+
+                <div class="section-header d-flex justify-content-between align-items-center flex-wrap">
+
+                    <div>
+
+                        <h3>
+
+                            <i class="fa-solid fa-table"></i>
+
+                            Subscription List
+
+                        </h3>
+
+                        <p>
+
+                            Search, filter and manage all subscriptions.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Filters -->
+
+                <div class="glass-card mb-4">
+
+                    <div class="row">
+
+                        <!-- Search -->
+
+                        <div class="col-lg-4 mb-3">
+
+                            <label class="form-label">
+
+                                Search Subscription
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="tableSearch"
+                                class="form-control"
+                                placeholder="Search service name...">
+
+                        </div>
+
+                        <!-- Category -->
+
+                        <div class="col-lg-3 mb-3">
+
+                            <label class="form-label">
+
+                                Filter Category
+
+                            </label>
+
+                            <select
+                                id="filterCategory"
+                                class="form-select">
+
+                                <option value="All">All Categories</option>
+
+                                <option>Entertainment</option>
+
+                                <option>Music</option>
+
+                                <option>Education</option>
+
+                                <option>Cloud Storage</option>
+
+                                <option>Software</option>
+
+                                <option>Gaming</option>
+
+                                <option>Shopping</option>
+
+                                <option>Productivity</option>
+
+                                <option>Health</option>
+
+                                <option>Other</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Status -->
+
+                        <div class="col-lg-3 mb-3">
+
+                            <label class="form-label">
+
+                                Filter Status
+
+                            </label>
+
+                            <select
+                                id="filterStatus"
+                                class="form-select">
+
+                                <option value="All">All Status</option>
+
+                                <option>Active</option>
+
+                                <option>Expired</option>
+
+                                <option>Cancelled</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Sort -->
+
+                        <div class="col-lg-2 mb-3">
+
+                            <label class="form-label">
+
+                                Sort
+
+                            </label>
+
+                            <select
+                                id="sortRenewal"
+                                class="form-select">
+
+                                <option value="asc">Old → New</option>
+
+                                <option value="desc">New → Old</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Table -->
+
+                <div class="glass-card">
+
+                    <div class="table-responsive">
+
+                        <table class="table align-middle table-dark table-hover">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Service</th>
+
+                                    <th>Category</th>
+
+                                    <th>Price</th>
+
+                                    <th>Billing</th>
+
+                                    <th>Renewal Date</th>
+
+                                    <th>Status</th>
+
+                                    <th width="170">
+
+                                        Action
+
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="subscriptionTable">
+
+                                <!-- JavaScript will generate rows here -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= REPORTS SECTION ================= -->
+
+            <section
+                id="reports"
+                class="content-section mt-5">
+
+                <div class="section-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        Reports
+
+                    </h3>
+
+                    <p>
+
+                        Expense analysis and subscription summary.
+
+                    </p>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <div class="col-lg-3">
+
+                        <div class="dashboard-card">
+
+                            <div class="card-icon blue">
+
+                                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3 id="reportMonthly">
+
+                                    ₹0
+
+                                </h3>
+
+                                <p>Monthly Expense</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3">
+
+                        <div class="dashboard-card">
+
+                            <div class="card-icon green">
+
+                                <i class="fa-solid fa-wallet"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3 id="reportYearly">
+
+                                    ₹0
+
+                                </h3>
+
+                                <p>Yearly Expense</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3">
+
+                        <div class="dashboard-card">
+
+                            <div class="card-icon orange">
+
+                                <i class="fa-solid fa-layer-group"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3 id="categoryCount">
+
+                                    0
+
+                                </h3>
+
+                                <p>Categories Used</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3">
+
+                        <div class="dashboard-card">
+
+                            <div class="card-icon purple">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3 id="renewalCount">
+
+                                    0
+
+                                </h3>
+
+                                <p>Upcoming Renewals</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Continue in Part 4 -->
+                                 <!-- Recent Renewals -->
+
+                <div class="glass-card mt-4">
+
+                    <h4 class="mb-4">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                        Recent Renewals
+
+                    </h4>
+
+                    <div class="table-responsive">
+
+                        <table class="table table-dark table-hover align-middle">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Service</th>
+                                    <th>Renewal Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="recentRenewals">
+
+                                <!-- JavaScript will populate recent renewals -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= PROFILE SECTION ================= -->
+
+            <section
+                id="profile"
+                class="content-section mt-5">
+
+                <div class="section-header">
+
+                    <h3>
+
+                        <i class="fa-solid fa-user"></i>
+
+                        User Profile
+
+                    </h3>
+
+                    <p>
+
+                        Account information and project details.
+
+                    </p>
+
+                </div>
+
+                <div class="glass-card">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-3 text-center">
+
+                            <img
+                                src="https://i.pravatar.cc/250?img=12"
+                                class="img-fluid rounded-circle profile-image"
+                                alt="Profile">
+
+                        </div>
+
+                        <div class="col-lg-9">
+
+                            <div class="row">
+
+                                <div class="col-md-6 mb-4">
+
+                                    <label class="form-label">
+
+                                        Full Name
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Manish Jamod"
+                                        readonly>
+
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+
+                                    <label class="form-label">
+
+                                        Email
+
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        value="manish@example.com"
+                                        readonly>
+
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+
+                                    <label class="form-label">
+
+                                        Role
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="Administrator"
+                                        readonly>
+
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+
+                                    <label class="form-label">
+
+                                        Joined Date
+
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        value="27 June 2026"
+                                        readonly>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer class="footer mt-5">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>
+
+                            © 2026 Subscription Management System
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-6 text-md-end">
+
+                        <p>
+
+                            Designed using HTML5, CSS3, Bootstrap 5 & Vanilla JavaScript
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </footer>
+
+        </main>
 
     </div>
 
-    <div class="card p-4 mb-4">
+    <!-- Bootstrap -->
 
-        <h3>Add Subscription</h3>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <form id="subscriptionForm">
+    <!-- Custom JavaScript -->
 
-            <input
-                type="text"
-                id="service"
-                class="form-control mb-3"
-                placeholder="Service Name"
-                required
-            >
-
-            <input
-                type="number"
-                id="price"
-                class="form-control mb-3"
-                placeholder="Monthly Price"
-                required
-            >
-
-            <input
-                type="date"
-                id="renewalDate"
-                class="form-control mb-3"
-                required
-            >
-
-            <button class="btn btn-primary">
-                Add Subscription
-            </button>
-
-        </form>
-
-    </div>
-
-    <div class="card p-4">
-
-        <h3>Your Subscriptions</h3>
-
-        <table class="table mt-3">
-
-            <thead>
-
-                <tr>
-                    <th>Service</th>
-                    <th>Price</th>
-                    <th>Renewal Date</th>
-                    <th>Action</th>
-                </tr>
-
-            </thead>
-
-            <tbody id="subscriptionList">
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</div>
-
-<script src="p.js"></script>
+    <script src="p.js"></script>
 
 </body>
+
 </html>
